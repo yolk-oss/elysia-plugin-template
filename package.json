@@ -1,11 +1,56 @@
 {
-  "name": "elysia-package",
-  "module": "src/index.ts",
+  "name": "elysia-plugin",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "plugin for Elysia",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yolk-oss/elysia-plugin"
+  },
+  "bugs": "https://github.com/yolk-oss/elysia-plugin/issues",
+  "homepage": "https://github.com/yolk-oss/elysia-plugin",
+  "keywords": [
+    "elysia",
+    "plugin",
+    "yolk-oss",
+    "template"
+  ],
   "type": "module",
+  "scripts": {
+    "dev": "bun run --watch examples/index.ts",
+    "build": "unbuild",
+    "lint": "xo",
+    "lint:fix": "xo --fix",
+    "release": "bun run test && bun run build && bumpp && npm publish --access public && git push --follow-tags",
+    "test": "bun run lint && bun test",
+    "typecheck": "tsc --noEmit"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "bun": "./dist/index.mjs",
+      "node": "./dist/index.cjs",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
-    "@types/bun": "latest"
+    "@elysiajs/eden": "^1.0.7",
+    "@types/bun": "latest",
+    "bumpp": "^9.4.0",
+    "elysia": "^1.0.9",
+    "typescript": "^5.4.3",
+    "unbuild": "^2.0.0",
+    "xo": "^0.58.0"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "elysia": ">= 1.0.0"
   }
 }
