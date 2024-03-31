@@ -1,3 +1,4 @@
+/** @type {import('xo').Options} */
 module.exports = {
   space: 2,
   semicolon: false,

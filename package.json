@@ -44,6 +44,7 @@
   "devDependencies": {
     "@elysiajs/eden": "^1.0.7",
     "@types/bun": "latest",
+    "@types/xo": "^0.39.8",
     "bumpp": "^9.4.0",
     "elysia": "^1.0.9",
     "typescript": "^5.4.3",
